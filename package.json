@@ -1,0 +1,12 @@
+{
+  "name": "pixel-quest",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pixel Quest — Le Cristal Perdu, a vanilla HTML5/JS platformer.",
+  "scripts": {
+    "test": "node tests/smoke-test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.47.0"
+  }
+}
