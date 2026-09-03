@@ -43,3 +43,7 @@ js/game.js        Moteur du jeu : boucle de jeu, physique, collisions, rendu Can
 - Écrans de menu, pause, fin de niveau, game over et victoire
 - Meilleur score persistant (localStorage)
 - Effets sonores générés en JavaScript (sauts, pièces, coups, victoire)
+
+## Tests
+
+Testé manuellement avec Playwright/Chromium (navigation dans les menus, déplacement, saut, collecte de pièces, franchissement des gouffres, élimination des ennemis, complétion de niveau) : aucune erreur console relevée.
