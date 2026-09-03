@@ -482,6 +482,13 @@
     }
 
     render();
+
+    // Read-only snapshot for the automated smoke tests (tests/smoke-test.mjs).
+    window.__pixelQuestTest = {
+      state, score, lives, levelIndex, playerX: player.x, playerY: player.y, onGround: player.onGround,
+      enemies: level ? enemies.filter(e => e.alive).map(e => ({ x: e.x, y: e.y })) : []
+    };
+
     requestAnimationFrame(loop);
   }
 

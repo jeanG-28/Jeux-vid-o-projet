@@ -46,4 +46,12 @@ js/game.js        Moteur du jeu : boucle de jeu, physique, collisions, rendu Can
 
 ## Tests
 
-Testé manuellement avec Playwright/Chromium (navigation dans les menus, déplacement, saut, collecte de pièces, franchissement des gouffres, élimination des ennemis, complétion de niveau) : aucune erreur console relevée.
+Une suite de tests automatisés (`tests/smoke-test.mjs`, basée sur Playwright/Chromium) vérifie le menu, la pause, la collecte de pièces, le franchissement des gouffres, l'élimination des ennemis et la complétion du niveau 1, sans erreur console. Elle tourne aussi en intégration continue via GitHub Actions (`.github/workflows/ci.yml`) à chaque push et pull request.
+
+Pour l'exécuter en local :
+
+```bash
+npm install
+npx playwright install --with-deps chromium
+npm test
+```
