@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixel Quest — Le Cristal Perdu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="game-canvas" width="800" height="450"></canvas>
+
+    <div id="hud">
+      <div class="hud-left">
+        <span id="hud-score">Score: 0</span>
+        <span id="hud-level">Niveau 1</span>
+      </div>
+      <div class="hud-right" id="hud-lives"></div>
+    </div>
+
+    <!-- Start screen -->
+    <div id="screen-start" class="screen">
+      <h1>PIXEL QUEST</h1>
+      <p class="subtitle">Le Cristal Perdu</p>
+      <p class="desc">Traverse 3 niveaux, évite les ennemis, collecte les pièces<br>et récupère le cristal à la fin de chaque niveau !</p>
+      <div class="controls">
+        <div><kbd>&larr;</kbd><kbd>&rarr;</kbd> ou <kbd>Q</kbd><kbd>D</kbd> Se déplacer</div>
+        <div><kbd>Espace</kbd> ou <kbd>&uarr;</kbd> Sauter</div>
+        <div><kbd>P</kbd> Pause</div>
+      </div>
+      <button id="btn-start" class="btn">Jouer</button>
+      <p class="highscore" id="highscore-label"></p>
+    </div>
+
+    <!-- Pause screen -->
+    <div id="screen-pause" class="screen hidden">
+      <h1>PAUSE</h1>
+      <button id="btn-resume" class="btn">Reprendre</button>
+    </div>
+
+    <!-- Level complete screen -->
+    <div id="screen-level-complete" class="screen hidden">
+      <h1>Niveau terminé !</h1>
+      <p id="level-complete-score" class="desc"></p>
+      <button id="btn-next-level" class="btn">Niveau suivant</button>
+    </div>
+
+    <!-- Game over screen -->
+    <div id="screen-gameover" class="screen hidden">
+      <h1 class="danger">GAME OVER</h1>
+      <p id="gameover-score" class="desc"></p>
+      <button id="btn-retry" class="btn">Réessayer</button>
+    </div>
+
+    <!-- Win screen -->
+    <div id="screen-win" class="screen hidden">
+      <h1 class="win">VICTOIRE !</h1>
+      <p class="desc">Tu as retrouvé les 3 cristaux et sauvé le royaume !</p>
+      <p id="win-score" class="desc"></p>
+      <button id="btn-play-again" class="btn">Rejouer</button>
+    </div>
+  </div>
+
+  <script src="js/audio.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
