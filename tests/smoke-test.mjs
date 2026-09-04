@@ -105,6 +105,14 @@ async function main() {
     assert(reachedLevelComplete, 'player should reach the level-complete screen within the time budget');
     console.log('[ok] Player crosses pits, defeats enemies, and completes level 1');
 
+    // 5. The level-complete overlay must actually be shown on screen (not just
+    // reflected in internal state), and its button must move the player on.
+    await page.waitForSelector('#screen-level-complete:not(.hidden)', { timeout: 3000 });
+    await page.click('#btn-next-level');
+    await page.waitForFunction(() => document.getElementById('screen-level-complete').classList.contains('hidden'));
+    await page.waitForFunction(() => window.__pixelQuestTest && window.__pixelQuestTest.levelIndex === 1);
+    console.log('[ok] Level-complete screen is shown and "Niveau suivant" advances to level 2');
+
     assert(consoleErrors.length === 0, `no console/page errors, got: ${JSON.stringify(consoleErrors)}`);
     console.log('[ok] No console or page errors');
 

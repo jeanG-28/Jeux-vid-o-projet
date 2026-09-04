@@ -152,7 +152,7 @@
     } else {
       state = 'levelcomplete';
       levelCompleteScore.textContent = `Score actuel : ${score}`;
-      showScreen('levelcomplete');
+      showScreen('levelComplete');
     }
   }
 
@@ -293,6 +293,11 @@
     player.vy = clamp(player.vy + GRAVITY * dt, -Infinity, MAX_FALL_SPEED);
 
     moveAndCollide(player, player.vx * dt, player.vy * dt, level.platforms);
+
+    // Invisible walls at the edges of the level, so jumping over the goal
+    // can't carry the player past the end of the world (with nothing beyond
+    // it to stand on or come back from).
+    player.x = clamp(player.x, 0, level.worldWidth - player.w);
 
     if (player.invuln > 0) player.invuln = Math.max(0, player.invuln - dt);
 
